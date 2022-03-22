@@ -17,19 +17,16 @@ class SchoolController extends Controller
      */
     public function index(Request $request)
     {
-        // if ($request->ajax()) {
+        if (request()->ajax()) {
 
-        // $schools = School::all();
-        // dd($schools);
-        //     return DataTables::of($schools)
-        //         ->addColumn('name', function ($school) {
-        //             return $school->name;
-        //         })->rawColumns(['name'])->make(true);
-        // }
+            $schools = School::all();
+            return DataTables::of($schools)
+                ->addColumn('name', function ($school) {
+                    return $school->name;
+                })->rawColumns(['name'])->make(true);
+        }
 
-
-        return Datatables::of(School::query())->make(true);
-        // return view('schools.index');
+        return view('schools.index');
     }
 
     /**
