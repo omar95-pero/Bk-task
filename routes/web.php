@@ -17,5 +17,5 @@ Route::get('/', function () {
     return view('students.index');
 });
 
-Route::resource('/students', 'App\Http\Controllers\StudentController');
-Route::resource('/schools', 'App\Http\Controllers\SchoolController');
+Route::resource('/students', 'App\Http\Controllers\StudentController')->except(['create','show']);
+Route::resource('/schools', 'App\Http\Controllers\SchoolController')->except(['create','show']);

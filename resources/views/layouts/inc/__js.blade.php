@@ -12,6 +12,7 @@
 		<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
   <!-- Bootstrap JavaScript -->
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="{{ asset('assets/plugins/cute-alert-master/cute-alert.js') }}"></script>
 		<!--Moment js-->
 		<script src="{{ asset('') }}/assets/plugins/moment/moment.js"></script>
 
@@ -43,14 +44,6 @@
 
 		<!-- INTERNAL Datepicker js -->
 		<script src="{{ asset('') }}/assets/plugins/modal-datepicker/datepicker.js"></script>
-
-		<!-- INTERNAL Data tables -->
-		<script src="{{ asset('') }}/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
-		<script src="{{ asset('') }}/assets/plugins/datatable/js/dataTables.bootstrap5.js"></script>
-		<script src="{{ asset('') }}/assets/plugins/datatable/js/dataTables.buttons.min.js"></script>
-		<script src="{{ asset('') }}/assets/plugins/datatable/js/buttons.bootstrap5.min.js"></script>
-		<script src="{{ asset('') }}/assets/plugins/datatable/dataTables.responsive.min.js"></script>
-		<script src="{{ asset('') }}/assets/plugins/datatable/responsive.bootstrap5.min.js"></script>
 
 		<!-- Ckeditor js  -->
 		<script src="{{ asset('') }}/assets/plugins/ckeditor/build/ckeditor.js"></script>
