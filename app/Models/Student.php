@@ -10,4 +10,8 @@ class Student extends Model
 {
     use HasFactory, SoftDeletes;
     public $guarded =  [];
+    public function school()
+    {
+        return $this->belongsTo(School::class, 'school_id', 'id');
+    }
 }

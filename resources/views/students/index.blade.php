@@ -59,9 +59,11 @@
                         </div>
                         <div class="form-group">
                             <label for="recipient-name" class="col-form-label">School Id</label>
-                            <select name="country" class="form-control custom-select select2" >
-                                <option label="Select Country" disabled selected>Select School</option>
-                                <option value="br">Brazil</option>
+                             <select name="school_id" class="form-select" aria-label="Default select example">
+                                 <option label="Select Country" disabled selected>Select School</option>
+                                 @foreach ($schools as $school)
+                                   <option value="{{ $school->id }}">{{ $school->name }}</option>
+                                 @endforeach
 
                             </select>
                         </div>
@@ -98,7 +100,7 @@
             "ordering": false,
             "searching": true,
             'iDisplayLength': 20,
-            "ajax": "{{ route('schools.index') }}",
+            "ajax": "{{ route('students.index') }}",
             "columns": [{
                 "data": "check_all",
                 orderable: false,
@@ -111,6 +113,16 @@
                 },
                 {
                     "data": "name",
+                    orderable: false,
+                    searchable: true
+                },
+                {
+                    "data": "school_id",
+                    orderable: false,
+                    searchable: true
+                },
+                {
+                    "data": "order",
                     orderable: false,
                     searchable: true
                 },
@@ -179,15 +191,7 @@
                     datatable_selector.draw();
                 },
                 error: function (data) {
-                    console.log(data)
-                    cuteToast({
-                        type: "error", // or 'info', 'error', 'warning'
-                        message: "{{__("app.You do not have the authority to do this")}}",
-                        timer: 3000
-                    });
-                    $('.loader-ajax').hide()
-                    // $('#exampleModalCenter').modal('hide')
-
+               console.log(data)
                     var errors = $.parseJSON(data.responseText);
 
                     $.each(errors, function (key, value) {
@@ -224,7 +228,7 @@
             e.preventDefault()
             var id = $(this).attr('id');
 
-            var url = '{{route('schools.edit',":id")}}';
+            var url = '{{route('students.edit',":id")}}';
             url = url.replace(':id', id);
 
             $.ajax({
