@@ -297,7 +297,7 @@
             }).then((result) => {
                 console.log(result)
                 if (result.value) {
-                    var url = '{{ route("schools.destroy", ":id") }}';
+                    var url = '{{ route("students.destroy", ":id") }}';
                     url = url.replace(':id', id);
                     $.ajax({
                         url: url,

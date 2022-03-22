@@ -16,4 +16,8 @@ class StudentService
         $student =  Student::findOrFail($id);
         return $student->update($data);
     }
+    public function delete($id)
+    {
+        return Student::destroy($id);
+    }
 }
