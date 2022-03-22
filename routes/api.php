@@ -21,8 +21,9 @@ Route::group([
 
 ], function ($router) {
 
-    Route::post('login', 'AuthController@login');
-    Route::post('logout', 'AuthController@logout');
-    Route::post('refresh', 'AuthController@refresh');
-    Route::post('me', 'AuthController@me');
+    Route::post('login', 'App\Http\Controllers\API\AuthController@login');
+    Route::post('logout', 'App\Http\Controllers\API\AuthController@logout');
+    Route::post('refresh', 'App\Http\Controllers\API\AuthController@refresh');
+    Route::post('me', 'App\Http\Controllers\API\AuthController@me');
+    Route::resource('/students', 'App\Http\Controllers\API\StudentApiController')->except('show', 'edit', 'create');
 });
